@@ -1,0 +1,30 @@
+
+<form [formGroup]="tarefaForm" (ngSubmit)="inserir()">
+  <p>
+    título: <input type="text" formControlName="titulo" />
+  </p>
+
+  <p>
+    descrição <input type="text" formControlName="descricao" />
+  </p>
+
+  <p>
+    data de vencimento <input type="date" formControlName="dataVencimento" />
+  </p>
+
+  <button type="submit">Enviar</button>
+</form>
+
+
+
+<h2>Listar </h2>
+
+<ul>
+  @for (item of tarefas; track $index){
+     <li> {{item.id}} - {{item.titulo}} - {{item.descricao}} - {{item.dataVencimento}}
+        <input type="button" value="remover" (click)="remover(item.id)">
+
+    </li>
+  }
+</ul>
+
